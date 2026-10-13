@@ -17,8 +17,6 @@ Indexing does not call Gemini. The CLI keeps models loaded across questions; eac
 
 ## Installation
 
-Replace `<repository-url>` with this project's GitHub clone URL after publication:
-
 ```bash
 git clone https://github.com/imdataboy/AtlasLex.git
 cd atlaslex
