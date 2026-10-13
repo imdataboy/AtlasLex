@@ -19,7 +19,7 @@ Indexing does not call Gemini. The CLI keeps models loaded across questions; eac
 
 ```bash
 git clone https://github.com/imdataboy/AtlasLex.git
-cd atlaslex
+cd AtlasLex
 uv sync --locked
 docker compose up -d
 uv run atlaslex
