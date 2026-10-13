@@ -57,7 +57,7 @@ If Google denies the **project's access** with a 403 error, open [Google Cloud C
 
 - Embeddings: `antoinelouis/french-me5-base` (original `query:` / `passage:` prefixes, normalized vectors).
 - Reranking: `antoinelouis/crossencoder-me5-base-mmarcoFR`.
-- Rewriting and answers: `gemini-3-flash-preview`, configurable with `GEMINI_MODEL`.
+- Rewriting and answers: `gemini-3-flash`, configurable with `GEMINI_MODEL`.
 
 The local models download automatically on first use and use the Hugging Face cache on subsequent runs. Their revisions are pinned in `config.py` to preserve the original weights. No GPU or paid embedding API is required. Dependencies are locked to a compatible Python 3.11 environment. Model availability and Gemini quotas remain external dependencies.
 
