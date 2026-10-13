@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="670" viewBox="0 0 1120 670" role="img" aria-labelledby="title description">
+  <title id="title">AtlasLex — implemented RAG architecture</title>
+  <desc id="description">PDF preparation builds synchronized Qdrant and BM25 snapshots. Each question passes through optional Gemini rewriting, dense and keyword retrieval, RRF, cross-encoder reranking, evidence grouping and Gemini generation with citation checks.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#547087"/></marker>
+    <style>
+      text { font-family: system-ui, sans-serif; fill: #162b3b; }
+      .heading { font-size: 26px; font-weight: 700; }
+      .label { font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+      .node { fill: #ffffff; stroke: #b1c5d4; stroke-width: 1.5; rx: 10; }
+      .model { fill: #e8f2ff; stroke: #6d9dc9; stroke-width: 1.5; rx: 10; }
+      .body { font-size: 15px; text-anchor: middle; }
+      .small { font-size: 12px; fill: #405c70; text-anchor: middle; }
+      .flow { fill: none; stroke: #547087; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1120" height="670" fill="#f5f8fb"/>
+  <text x="40" y="48" class="heading">AtlasLex</text>
+  <text x="40" y="76" font-size="17">Moroccan Commercial Law RAG · Python CLI · single-turn questions</text>
+
+  <text x="40" y="119" class="label">DOCUMENT PREPARATION — NO LLM REQUESTS</text>
+  <rect class="node" x="40" y="137" width="205" height="77"/>
+  <text class="body" x="142" y="167">Legal PDFs</text><text class="small" x="142" y="190">Filename + content hash + pages</text>
+  <path class="flow" d="M245 176H284"/>
+  <rect class="node" x="285" y="137" width="235" height="77"/>
+  <text class="body" x="402" y="165">Extract, parse and chunk</text><text class="small" x="402" y="187">Articles / conservative page fallback</text><text class="small" x="402" y="203">Footnotes, hierarchy, overlapping text</text>
+  <path class="flow" d="M520 176H559"/>
+  <rect class="model" x="560" y="137" width="230" height="77"/>
+  <text class="body" x="675" y="165">French ME5 embeddings</text><text class="small" x="675" y="188">Local CPU · passage: prefix</text>
+  <path class="flow" d="M790 176H829"/>
+  <rect class="node" x="830" y="137" width="250" height="77"/>
+  <text class="body" x="955" y="165">Qdrant + sparse corpus</text><text class="small" x="955" y="187">Canonical UUIDs · duplicate detection</text><text class="small" x="955" y="203">Verified snapshot → atomic alias switch</text>
+
+  <text x="40" y="266" class="label">RETRIEVAL — ORIGINAL HYBRID PIPELINE</text>
+  <rect class="node" x="40" y="290" width="165" height="68"/>
+  <text class="body" x="122" y="320">User question</text><text class="small" x="122" y="342">Interactive terminal</text>
+  <path class="flow" d="M205 324H239"/>
+  <rect class="model" x="240" y="290" width="200" height="68"/>
+  <text class="body" x="340" y="320">Gemini rewrite</text><text class="small" x="340" y="342">Optional, configurable</text>
+  <path class="flow" d="M440 324H474"/>
+  <rect class="node" x="475" y="282" width="265" height="88"/>
+  <text class="body" x="607" y="310">Dense search + BM25</text><text class="small" x="607" y="334">French ME5 query: → Qdrant</text><text class="small" x="607" y="354">Keyword search over matching chunks</text>
+  <path class="flow" d="M955 214V246H607V281"/>
+  <path class="flow" d="M740 324H774"/>
+  <rect class="node" x="775" y="290" width="305" height="68"/>
+  <text class="body" x="927" y="320">Reciprocal rank fusion (RRF)</text><text class="small" x="927" y="342">Combine matching canonical chunk IDs</text>
+
+  <text x="40" y="428" class="label">EVIDENCE AND ANSWER</text>
+  <path class="flow" d="M927 358V395H164V454"/>
+  <rect class="model" x="40" y="455" width="250" height="88"/>
+  <text class="body" x="165" y="485">French ME5 cross-encoder</text><text class="small" x="165" y="509">Local CPU reranking</text><text class="small" x="165" y="530">Configurable relevance cutoff</text>
+  <path class="flow" d="M290 499H324"/>
+  <rect class="node" x="325" y="455" width="225" height="88"/>
+  <text class="body" x="437" y="485">Group article evidence</text><text class="small" x="437" y="509">Retain relevant subchunks</text><text class="small" x="437" y="530">Document-scoped article identities</text>
+  <path class="flow" d="M550 499H584"/>
+  <rect class="model" x="585" y="455" width="225" height="88"/>
+  <text class="body" x="697" y="485">Gemini answer</text><text class="small" x="697" y="509">Grounded French response</text><text class="small" x="697" y="530">Abstain without sufficient evidence</text>
+  <path class="flow" d="M810 499H844"/>
+  <rect class="node" x="845" y="455" width="235" height="88"/>
+  <text class="body" x="962" y="485">Validate citations → CLI</text><text class="small" x="962" y="509">Source IDs + article references</text><text class="small" x="962" y="530">Display documents and pages</text>
+
+  <text x="40" y="597" font-size="14">Shared configuration · lazy cached models · persistent Qdrant volume · recoverable index replacement</text>
+  <text x="40" y="626" font-size="13" fill="#405c70">Scope: source-grounded retrieval, no conversational memory. Optional dataset export is separate from the application.</text>
+</svg>
