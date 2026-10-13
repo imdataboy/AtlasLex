@@ -65,4 +65,4 @@ The local models download automatically on first use and use the Hugging Face ca
 
 The supplied Code de commerce identifies a consolidation dated **December 19, 2019**; current legislation is not guaranteed. Its source URL and redistribution terms were not recorded in the original repository; verify provenance before redistributing the PDF. The MIT license covers project code, not the source documents or third-party models.
 
-Answers depend on indexed documents, extraction quality and Gemini. Parsing arbitrary legal layouts, OCR, conversational memory and fine-tuning are outside scope. No measured legal-answer accuracy is claimed. This is an educational portfolio application, not a substitute for professional legal advice.
+Answers depend on indexed documents, extraction quality and Gemini. Parsing arbitrary legal layouts, OCR, conversational memory and fine-tuning are outside scope. No measured legal-answer accuracy is claimed. This is a portfolio application, not a substitute for professional legal advice.
