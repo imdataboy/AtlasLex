@@ -20,7 +20,7 @@ Indexing does not call Gemini. The CLI keeps models loaded across questions; eac
 Replace `<repository-url>` with this project's GitHub clone URL after publication:
 
 ```bash
-git clone [<repository-url> atlaslex](https://github.com/imdataboy/AtlasLex.git)
+git clone https://github.com/imdataboy/AtlasLex.git
 cd atlaslex
 uv sync --locked
 docker compose up -d
